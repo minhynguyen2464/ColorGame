@@ -5,36 +5,42 @@ var allow = 1;
 function createbox(id) {
 	session_id = id;
 	const color = document.getElementById('color');
+	var bonus = 0;
+	var diff = 0;
 	color.innerHTML = '';
 	var r = Math.floor(Math.random() * 256);
 	var g = Math.floor(Math.random() * 256);
 	var b = Math.floor(Math.random() * 256);
 	if (id == 'easy') {
-		for (i = 0; i < 15; i++) {
+		for (i = 0; i < 30; i++) {
 			create(i, r, g, b);
 		}
-		r += 20;
-		document.getElementById('color').style.width = '80%';
-		document.getElementById('color').style.marginLeft = '10%';
+		bonus = 30;
+		diff = 40;
+		document.getElementById('color').style.width = '100%';
+		document.getElementById('color').style.marginLeft = '0%';
 	} else if (id == 'hard') {
-		for (i = 0; i < 28; i++) {
+		for (i = 0; i < 30; i++) {
 			create(i, r, g, b);
 		}
-		r += 10;
-		document.getElementById('color').style.width = '80%';
-		document.getElementById('color').style.marginLeft = '10%';
+		bonus = 20;
+		diff = 30;
+		document.getElementById('color').style.width = '100%';
+		document.getElementById('color').style.marginLeft = '0%';
 	} else {
-		for (i = 0; i < 72; i++) {
+		for (i = 0; i < 30; i++) {
 			create(i, r, g, b);
 		}
-		document.getElementById('color').style.width = '80%';
-		document.getElementById('color').style.marginLeft = '10%';
+		bonus = 6;
+		diff = 8;
+		document.getElementById('color').style.width = '100%';
+		document.getElementById('color').style.marginLeft = '0%';
 	}
 
 	let parentSelector = document.querySelector('.color');
 	let random = Math.floor(Math.random() * parentSelector.childElementCount) + 1;
 	child = document.querySelector('.color>div:nth-child(' + random + ')'); //Choose random child
-	var r_random = r + Math.floor(Math.random() * 50); //Add 10 to random r,g,b
+	var r_random = r + Math.floor(Math.random() * diff) + bonus; //Add between range bonus-diff to random r,g,b
 	child.style.backgroundColor = 'rgb(' + r_random + ',' + g + ',' + b + ')';
 
 	result = child.style.backgroundColor;
