@@ -17,14 +17,14 @@ function createbox(id) {
 		document.getElementById('color').style.width = '80%';
 		document.getElementById('color').style.marginLeft = '10%';
 	} else if (id == 'hard') {
-		for (i = 0; i < 25; i++) {
+		for (i = 0; i < 28; i++) {
 			create(i, r, g, b);
 		}
 		r += 10;
 		document.getElementById('color').style.width = '80%';
 		document.getElementById('color').style.marginLeft = '10%';
 	} else {
-		for (i = 0; i < 75; i++) {
+		for (i = 0; i < 72; i++) {
 			create(i, r, g, b);
 		}
 		document.getElementById('color').style.width = '80%';
