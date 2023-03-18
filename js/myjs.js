@@ -12,7 +12,8 @@ function createbox(id) {
 	var g = Math.floor(Math.random() * 256);
 	var b = Math.floor(Math.random() * 256);
 	if (id == 'easy') {
-		for (i = 0; i < 30; i++) {
+		//Create 25 boxes
+		for (i = 0; i < 25; i++) {
 			create(i, r, g, b);
 		}
 		bonus = 30;
@@ -20,7 +21,8 @@ function createbox(id) {
 		document.getElementById('color').style.width = '100%';
 		document.getElementById('color').style.marginLeft = '0%';
 	} else if (id == 'hard') {
-		for (i = 0; i < 30; i++) {
+		//Create 25 boxes
+		for (i = 0; i < 25; i++) {
 			create(i, r, g, b);
 		}
 		bonus = 20;
@@ -28,10 +30,11 @@ function createbox(id) {
 		document.getElementById('color').style.width = '100%';
 		document.getElementById('color').style.marginLeft = '0%';
 	} else {
-		for (i = 0; i < 30; i++) {
+		//Create 25 boxes
+		for (i = 0; i < 25; i++) {
 			create(i, r, g, b);
 		}
-		bonus = 6;
+		bonus = 7;
 		diff = 8;
 		document.getElementById('color').style.width = '100%';
 		document.getElementById('color').style.marginLeft = '0%';
@@ -97,8 +100,10 @@ async function check(id) {
 		document.getElementById('user_result').innerHTML = 'WRONG BOX';
 		allow = 0;
 		await delay(2000);
+		document.getElementById('user_result').innerHTML = '';
 		box_id.style.border = '2px solid rgba(255, 255, 255, 0.648)';
 		allow = 1;
+		createbox(session_id);
 	}
 }
 
